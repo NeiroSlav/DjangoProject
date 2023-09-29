@@ -1,0 +1,21 @@
+{% extends 'pager/base.html' %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+<br>
+
+{%for i in list%}
+
+<div class="list-elem-div">
+    {% if delete_button %}
+    <a class="del-buttons" href="{{ i.get_absolute_url_del }}">X</a>
+    {% else %}
+    <a class="del-buttons">></a>
+    {% endif %}
+    <a class="list-buttons" href="{{ i.get_absolute_url }}">{{i}}</a>
+    <br>
+</div>
+{%endfor%}
+
+{% endblock %}

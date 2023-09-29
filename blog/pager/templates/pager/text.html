@@ -1,0 +1,31 @@
+{% extends 'pager/base.html' %}
+
+{% block content %}
+
+<h1>{{ name }}</h1>
+<br>
+
+
+{% for t in text %}
+{{ t }}
+<br>
+<br>
+{% endfor %}
+
+<br>
+
+<div class="date">
+    {{ date }}
+    <br>
+    {{ author }}
+</div>
+
+{% if edit_access %}
+<div class="send-button-margin-4">
+    <button class="send-button"
+            onclick="window.location.href = '{{ edit_url }}';">Изменить
+    </button>
+</div>
+{% endif %}
+
+{% endblock %}

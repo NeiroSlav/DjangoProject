@@ -1,0 +1,30 @@
+{% extends 'pager/base.html' %}
+
+{% block content %}
+
+<h1>Изменить статью</h1>
+<br>
+
+<form method="post">
+    {% csrf_token %}
+    <label class="error-label">{{ form.non_field_errors }}</label>
+
+    <label class="input-labels">Изменить название:</label>
+    <br>
+    {{ form.name }}
+    <br>
+    <label class="input-labels">Изменить текст:</label>
+    <br>
+    {{ form.text }}
+
+    <div class="send-button-margin-2">
+        <button class="send-button" type="submit">Сохранить</button>
+    </div>
+</form>
+
+<div class="send-button-margin-3">
+     <button class="send-button"
+             onclick="window.location.href = '{{ page.get_absolute_url_del }}';">Удалить</button>
+</div>
+
+{% endblock %}

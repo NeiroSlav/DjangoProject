@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/blog/blog/urls.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/blog/pager/forms.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/blog/pager/models.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/blog/pager/templates/pager/new.html" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/blog/pager/utils.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/blog/pager/views.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/blog/userface/utils.py" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/blog/userface/views.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2VL6qmUc6WtiD3LuxOL0lV9BDwE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Python/DjangoProject&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Python\DjangoProject\blog\userface\templates\userface" />
+      <recent name="E:\Python\DjangoProject\blog\userface\templates" />
+      <recent name="E:\Python\DjangoProject\blog\userface" />
+      <recent name="E:\Python\DjangoProject\blog\authenticator\migrations" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Python\DjangoProject\blog\userface" />
+      <recent name="E:\Python\DjangoProject\blog\userface\templates\userface" />
+      <recent name="E:\Python\DjangoProject\blog\authenticator" />
+      <recent name="E:\Python\DjangoProject\blog\by_myself" />
+      <recent name="E:\Python\DjangoProject\blog\pager" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="" />
+      <created>1694603208332</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694603208332</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Add files">
+      <option name="closed" value="true" />
+      <created>1696019861458</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696019861458</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add files">
+      <option name="closed" value="true" />
+      <created>1696020044155</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696020044155</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add files" />
+  </component>
+</project>

@@ -1,0 +1,31 @@
+{% extends 'pager/base.html' %}
+
+{% block content %}
+
+<h1>Новая статья</h1>
+<br>
+
+<form action="{% url 'new' %}" method="post">
+    {% csrf_token %}
+    <label class="error-label">{{ form.non_field_errors }}</label>
+
+    <label class="input-labels">Название:</label>
+    <br>
+    {{ form.name }}
+    <br>
+    <label class="input-labels">Текст статьи:</label>
+    <br>
+    {{ form.text }}
+
+    <div class="send-button-margin">
+        <button class="send-button" type="submit">
+            Добавить
+        </button>
+    </div>
+
+    <div class="form-errors">
+        {{ form.name.errors }}
+    </div>
+</form>
+
+{% endblock %}

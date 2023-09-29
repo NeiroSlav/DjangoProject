@@ -1,0 +1,25 @@
+{% extends 'pager/base.html' %}
+
+{% block content %}
+
+<h1>{{title}}</h1>
+<br>
+<form method="post">
+    {% csrf_token %}
+    <label class="input-labels">Логин:</label>
+    <br>
+    {{ form.username }}
+    <br>{{ form.username.errors }}
+    <label class="input-labels">Пароль:</label>
+    <br>
+    {{ form.password }}
+    <br>{{ form.password.errors }}
+
+    <button class="send-button" type="submit">Войти</button>
+</form>
+
+<br>
+    <button class="send-button" onclick="window.location.href = '{% url 'register' %}';">Регистрация</button>
+
+
+{% endblock %}

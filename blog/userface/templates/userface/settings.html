@@ -1,0 +1,23 @@
+{% extends 'pager/base.html' %}
+
+{% block content %}
+
+<h1>{{ title }}</h1>
+<br>
+Тема:
+<button class="send-button"
+        onclick="window.location.href = '{% url 'theme' %}';">
+        {% if theme %}
+        светлая
+        {% else %}
+        тёмная
+        {% endif %}
+</button>
+<br>
+<br>
+<button class="send-button"
+        onclick="window.location.href = '{% url 'logout' %}';">
+        выйти
+</button>
+
+{% endblock %}
