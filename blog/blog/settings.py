@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'pager.apps.PagerConfig',
-    'userface.apps.UserfaceConfig'
+    'userface.apps.UserfaceConfig',
+    'chat.apps.ChatConfig',
 ]
 
 MIDDLEWARE = [

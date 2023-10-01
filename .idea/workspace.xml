@@ -4,16 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="Add files">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="test changes">
+      <change afterPath="$PROJECT_DIR$/blog/chat/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/chat/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/chat/static/pager/css/styles-light.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/chat/static/pager/css/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/chat/static/pager/images/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/chat/templates/chat/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/chat/templates/chat/chat.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/chat/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/messengser/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/messengser/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/messengser/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/messengser/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/messengser/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/messengser/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/messengser/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/blog/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/blog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/message/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/message/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/message/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/message/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/message/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/message/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/message/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/pager/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/pager/admin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,17 +33,29 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
+    {
+      &quot;state&quot;: &quot;MERGED&quot;,
+      &quot;assignee&quot;: &quot;metacrist&quot;
+    }
+  ],
   &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;state&quot;: &quot;MERGED&quot;,
     &quot;assignee&quot;: &quot;metacrist&quot;
   }
 }</component>
@@ -62,7 +84,9 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2VL6qmUc6WtiD3LuxOL0lV9BDwE" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -74,16 +98,17 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Python/DjangoProject",
+    "last_opened_file_path": "E:/Python/DjangoProject/blog/chat",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Python\DjangoProject\blog\chat" />
+      <recent name="E:\Python\DjangoProject\blog\chat\templates\chat" />
       <recent name="E:\Python\DjangoProject\blog\userface\templates\userface" />
       <recent name="E:\Python\DjangoProject\blog\userface\templates" />
       <recent name="E:\Python\DjangoProject\blog\userface" />
-      <recent name="E:\Python\DjangoProject\blog\authenticator\migrations" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Python\DjangoProject\blog\userface" />
@@ -142,11 +167,57 @@
       <option name="project" value="LOCAL" />
       <updated>1696022377474</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add files">
+      <option name="closed" value="true" />
+      <created>1696025389133</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696025389133</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Renamed an App">
+      <option name="closed" value="true" />
+      <created>1696025638615</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1696025638615</updated>
+    </task>
+    <task id="LOCAL-00008" summary="test changes">
+      <option name="closed" value="true" />
+      <created>1696027857500</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1696027857500</updated>
+    </task>
+    <task id="LOCAL-00009" summary="test changes">
+      <option name="closed" value="true" />
+      <created>1696028079424</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1696028079424</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add files" />
+    <MESSAGE value="test" />
+    <MESSAGE value="Renamed an App" />
+    <MESSAGE value="test changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="test changes" />
   </component>
 </project>
