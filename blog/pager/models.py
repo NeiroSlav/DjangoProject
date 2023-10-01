@@ -10,7 +10,8 @@ class Page(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey('userface.CustomUser',
                              on_delete=models.SET_NULL,
-                             null=True)
+                             null=True,
+                             related_name='author')
 
     def __str__(self):
         return self.name

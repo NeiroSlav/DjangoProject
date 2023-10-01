@@ -2,23 +2,41 @@
 
 {% block content %}
 
-<h1>{{title}}</h1>
+
+<div class="profile-header">
+    <h1 class="profile-name">{{title}}</h1>
+
+    {% if is_me %}
+    <a class="profile-settings-button" href = "{% url 'settings' %}">настройки</a>
+    {% else %}
+    <a class="profile-settings-button" href = "{% url 'settings' %}">написать</a>
+    {% endif %}
+</div>
+
+
+<br>
 <br>
 {% for t in text %}
-{{ t }}
-<br>
+<a class="del-buttons">></a>
+<a class="list-buttons">{{ t }}</a>
 <br>
 {% endfor %}
 
-{% if is_me %}
-<button class="send-button"
-        onclick="window.location.href = '{% url 'settings' %}';">
-    настройки
-</button>
-<button class="send-button"
-        onclick="window.location.href = '{% url 'logout' %}';">
-        выйти
-</button>
+{% if pages %}
+<br>
+<br>
+<h2>Статьи:</h2>
+<br>
+
+
+{% for p in pages %}
+<a class="del-buttons">></a>
+<a class="list-buttons" href="{{ p.get_absolute_url }}">
+    {{ p }}
+</a>
+<br>
+{% endfor %}
+
 {% endif %}
 
 {% endblock %}

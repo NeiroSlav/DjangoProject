@@ -46,10 +46,13 @@ class Profile(DataMixin, View):
             is_me = False
 
         try:
-            user = CustomUser.objects.get(username = username)
+            user = CustomUser.objects.get(username=username)
             username = user.username
             last_login = user.last_login
             user_id = user.id
+
+            pages = Page.objects.filter(user=user_id)
+
             text = [
                 f'ID пользователя: {user_id}',
                 f'Последний раз заходил: {str(last_login).split()[0]}',
@@ -57,13 +60,14 @@ class Profile(DataMixin, View):
             ]
         except:
             username = 'Пользователь не найден'
-            text = ''
+            text = pages = ''
 
         context = {
             'menu': get_menu(request),
             'title': username,
             'text': text,
             'is_me': is_me,
+            'pages': pages,
         }
 
         return render(request, 'userface/profile.html', context=context)
