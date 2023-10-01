@@ -1,0 +1,27 @@
+{% extends 'chat/base.html' %}
+
+{% block content %}
+
+<h1>Новый чат</h1>
+<br>
+
+<form action="{% url 'new_chat' %}" method="post">
+    {% csrf_token %}
+    <label class="error-label">{{ form.non_field_errors }}</label>
+
+    <label class="input-labels">Название чата:</label>
+    <br>
+    {{ form.name }}
+    <br>
+    <div class="send-button-margin">
+        <button class="send-button" type="submit">
+            Добавить
+        </button>
+    </div>
+
+    <div class="form-errors">
+        {{ form.name.errors }}
+    </div>
+</form>
+
+{% endblock %}

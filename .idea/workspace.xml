@@ -4,26 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="test changes">
-      <change afterPath="$PROJECT_DIR$/blog/chat/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/chat/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/chat/static/pager/css/styles-light.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/chat/static/pager/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/chat/static/pager/images/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/chat/templates/chat/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/chat/templates/chat/chat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/chat/urls.py" afterDir="false" />
+    <list default="true" id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="renamed app &quot;message&quot; to &quot;chat&quot;&#10;added models Chat and Message&#10;registration of chat app and it's urls">
+      <change afterPath="$PROJECT_DIR$/blog/chat/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/chat/templates/chat/new.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blog/chat/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/blog/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/blog/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/blog/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/message/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/message/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/message/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/message/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/migrations/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/message/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/message/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/message/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/pager/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/pager/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/chat/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/chat/templates/chat/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/templates/chat/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/chat/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/chat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/blog/db.sqlite3" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696028079424</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="renamed app &quot;message&quot; to &quot;chat&quot;&#10;added models Chat and Message&#10;registration of chat app and it's urls">
+      <option name="closed" value="true" />
+      <created>1696123145375</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1696123145375</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -218,6 +216,7 @@
     <MESSAGE value="test" />
     <MESSAGE value="Renamed an App" />
     <MESSAGE value="test changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="test changes" />
+    <MESSAGE value="renamed app &quot;message&quot; to &quot;chat&quot;&#10;added models Chat and Message&#10;registration of chat app and it's urls" />
+    <option name="LAST_COMMIT_MESSAGE" value="renamed app &quot;message&quot; to &quot;chat&quot;&#10;added models Chat and Message&#10;registration of chat app and it's urls" />
   </component>
 </project>
