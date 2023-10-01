@@ -31,17 +31,45 @@ class AboutPage(MainPage):
     search = 'about_page'
 
 
-class Theme(LoginMixin, View):
-    """CМЕНА ТЕМЫ ОФОРМЛЕНИЯ"""
 
-    def get(self, request):
-        username = request.user.username
-        user = CustomUser.objects.get(username=username)
-        # print('тема перед изменением:', user.theme)
-        user.theme = not user.theme
-        user.save()
-        # print('тема после изменением:', user.theme)
-        return redirect('settings')
+
+
+class Profile(DataMixin, View):
+    """СТРАНИЧКА ПРОФИЛЯ ПОЛЬЗОВАТЕЛЯ"""
+
+    def get(self, request, username=None):
+
+        if username == None:
+            username = request.user.username
+            is_me = True
+        else:
+            is_me = False
+
+        try:
+            user = CustomUser.objects.get(username = username)
+            username = user.username
+            last_login = user.last_login
+            user_id = user.id
+            text = [
+                f'ID пользователя: {user_id}',
+                f'Последний раз заходил: {str(last_login).split()[0]}',
+                f'Увлекательная информация, {username}',
+            ]
+        except:
+            username = 'Пользователь не найден'
+            text = ''
+
+        context = {
+            'menu': get_menu(request),
+            'title': username,
+            'text': text,
+            'is_me': is_me,
+        }
+
+        return render(request, 'userface/profile.html', context=context)
+
+
+
 
 
 class Settings(LoginMixin, DataMixin, View):
@@ -56,3 +84,16 @@ class Settings(LoginMixin, DataMixin, View):
         })
         # print(context['theme'])
         return render(request, 'userface/settings.html', context)
+
+
+class Theme(LoginMixin, View):
+    """CМЕНА ТЕМЫ ОФОРМЛЕНИЯ"""
+
+    def get(self, request):
+        username = request.user.username
+        user = CustomUser.objects.get(username=username)
+        # print('тема перед изменением:', user.theme)
+        user.theme = not user.theme
+        user.save()
+        # print('тема после изменением:', user.theme)
+        return redirect('settings')

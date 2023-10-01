@@ -4,16 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="renamed app &quot;message&quot; to &quot;chat&quot;&#10;added models Chat and Message&#10;registration of chat app and it's urls">
-      <change afterPath="$PROJECT_DIR$/blog/chat/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/chat/templates/chat/new.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/chat/utils.py" afterDir="false" />
+    <list default="true" id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="added chat views&#10;new chat can be created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/chat/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/chat/templates/chat/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/templates/chat/chat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/chat/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/chat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/blog/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/userface/reg_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/userface/reg_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/userface/templates/userface/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/userface/templates/userface/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/userface/templates/userface/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/userface/templates/userface/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/userface/templates/userface/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/userface/templates/userface/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/userface/templates/userface/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/userface/templates/userface/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/userface/templates/userface/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/userface/templates/userface/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/userface/templates/userface/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/userface/templates/userface/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/userface/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/userface/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/userface/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/userface/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/userface/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/userface/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,8 +103,8 @@
       <recent name="E:\Python\DjangoProject\blog\userface" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Python\DjangoProject\blog\userface" />
       <recent name="E:\Python\DjangoProject\blog\userface\templates\userface" />
+      <recent name="E:\Python\DjangoProject\blog\userface" />
       <recent name="E:\Python\DjangoProject\blog\authenticator" />
       <recent name="E:\Python\DjangoProject\blog\by_myself" />
       <recent name="E:\Python\DjangoProject\blog\pager" />
@@ -197,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696123145375</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added chat views&#10;new chat can be created">
+      <option name="closed" value="true" />
+      <created>1696126479811</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1696126479811</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -217,6 +227,7 @@
     <MESSAGE value="Renamed an App" />
     <MESSAGE value="test changes" />
     <MESSAGE value="renamed app &quot;message&quot; to &quot;chat&quot;&#10;added models Chat and Message&#10;registration of chat app and it's urls" />
-    <option name="LAST_COMMIT_MESSAGE" value="renamed app &quot;message&quot; to &quot;chat&quot;&#10;added models Chat and Message&#10;registration of chat app and it's urls" />
+    <MESSAGE value="added chat views&#10;new chat can be created" />
+    <option name="LAST_COMMIT_MESSAGE" value="added chat views&#10;new chat can be created" />
   </component>
 </project>

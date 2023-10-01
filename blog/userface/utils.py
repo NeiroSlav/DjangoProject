@@ -2,7 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 main_menu = [
     {'title': 'статьи', 'url': 'list'},
-    {'title': 'личные', 'url': 'main'},
+    {'title': 'чаты', 'url': 'main'},
     {'title': 'инфо', 'url': 'about'}
 ]
 
