@@ -3,37 +3,34 @@ from django.shortcuts import redirect
 
 from .models import *
 
-menu = [{'title': 'статьи', 'url': 'list'},
-        {'title': 'новая', 'url': 'new'},
-        ]
+main_menu = [
+    {'title': 'все чаты', 'url': 'chat'},
+    {'title': 'новый чат', 'url': 'new_chat'},
+]
+
+humble_menu = [
+    {'title': 'инфо', 'url': 'about'},
+    {'title': 'регистрация', 'url': 'register'}
+]
+
+
+def get_menu(request=None, humble=True):
+    if request:
+        return main_menu if request.user.is_authenticated \
+            else humble_menu
+
+    else:
+        return humble_menu if humble \
+            else main_menu
 
 
 class DataMixin:
     """ОБЩИЕ ДАННЫЕ ДЛЯ НАСЛЕДУЕМЫХ КЛАССОВ"""
 
     @staticmethod
-    def get_context(context={}) -> dict:
+    def get_context(context={}):
         base = {
-            'menu': menu,
+            'menu': get_menu(humble=False),
             'theme': 0
         }
         return base | context
-
-
-class LoginMixin(LoginRequiredMixin):
-    """ПРОВЕРКА АВТОРИЗОВАННОГО ПОЛЬЗОВАТЕЛЯ"""
-
-    login_url = 'login'
-    redirect_field_name = "nonono"
-
-
-# Декоратор методов get() для проверки авторства
-# def is_author(funk):
-#     def wrapper(self, request, page_id):
-#         page = Page.objects.get(id=page_id)
-#         if str(page.user) == request.user.username:
-#             return funk(self, request, page_id)
-#         else:
-#             return redirect('list')
-#
-#     return wrapper

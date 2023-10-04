@@ -58,15 +58,18 @@ class Profile(DataMixin, View):
                 f'Последний раз заходил: {str(last_login).split()[0]}',
                 f'Увлекательная информация, {username}',
             ]
+
         except:
             username = 'Пользователь не найден'
             text = pages = ''
+            user = None
 
         context = {
             'menu': get_menu(request),
             'title': username,
             'text': text,
             'is_me': is_me,
+            'user': user,
             'pages': pages,
         }
 

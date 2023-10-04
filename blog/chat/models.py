@@ -18,5 +18,13 @@ class Message(models.Model):
 
 class Chat(models.Model):
     name = models.CharField(max_length=30)
+    personal = models.BooleanField(default=True)
     member = models.ManyToManyField('userface.CustomUser',
                                     related_name='member')
+    admin = models.ForeignKey('userface.CustomUser',
+                              on_delete=models.SET_NULL,
+                              null=True,
+                              related_name='admin')
+
+    def __str__(self):
+        return self.name

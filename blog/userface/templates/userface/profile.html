@@ -9,7 +9,7 @@
     {% if is_me %}
     <a class="profile-settings-button" href = "{% url 'settings' %}">настройки</a>
     {% else %}
-    <a class="profile-settings-button" href = "{% url 'settings' %}">написать</a>
+    <a class="profile-settings-button" href = "{{ user.get_absolute_url }}">написать</a>
     {% endif %}
 </div>
 
