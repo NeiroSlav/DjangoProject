@@ -197,6 +197,86 @@ textarea {
 
 
 
+
+
+
+
+.chat-frame {
+  font-size: 18px;
+  padding: 40px 107px 40px 107px;
+  color: #CCCCCC;
+  text-align: justify;
+  font-weight: 500;
+  line-height: 1.5;
+  height: calc(100vh - 240px);
+}
+
+.chat-sub-frame {
+  background-color: #333333;
+  width: calc(100vw - 213px);
+  height: calc(100vh - 226px);
+  position: absolute;
+  border-radius: 10px;
+}
+
+.chat-list {
+  width: calc(23vw);
+  margin: 12px 0px 0px 12px;
+  height: calc(100vh - 250px);
+  background-color: #212121;
+  position: absolute;
+  border-radius: 10px 0 0 10px;
+}
+
+
+
+
+.opened-chat {
+  width: calc(77vw - 242px);
+  margin: 12px 0px 0px calc(23vw + 17px);
+  height: calc(100vh - 250px);
+  position: absolute;
+}
+
+.chat-header {
+  height: 53px;
+  background-color: #212121;
+  border-radius: 0 10px 0 0;
+}
+
+.chat-content {
+  margin-top: 3px;
+  height: calc(100vh - 362px);
+  background-color: #212121;
+}
+
+.chat-input {
+  margin-top: 3px;
+  height: 53px;
+  background-color: #212121;
+    border-radius: 0 0 10px 0;
+
+}
+
+.chat-input-form{
+  padding: 5px 15px 5px 15px;
+  width: calc(77vw - 275px);
+  height: 39px;
+  border-radius: 0 0 10px 0;
+  outline: 0;
+  box-shadow: 0 0 0 0;
+
+
+
+  background-color: #212121;
+  color: #FFFFFF;
+
+  font-size: 16px;
+}
+
+
+
+
 .input-labels {
   margin: 0px 0px 5px 0px;
   font-size: 20px;

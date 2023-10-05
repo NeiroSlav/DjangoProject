@@ -6,6 +6,7 @@ from .utils import *
 
 
 def find_personal_chat(user1, user2) -> Chat:
+    """поиск личного чата между юзерами"""
     chat_name = f'{user1}-to-{user2}'
     name_chat = f'{user2}-to-{user1}'
     chat = Chat.objects.filter(Q(name=chat_name) | Q(name=name_chat))
@@ -17,6 +18,7 @@ def find_personal_chat(user1, user2) -> Chat:
 
 
 def create_personal_chat(user1, user2) -> Chat:
+    """создание личного чата между юзерами"""
     new_chat = Chat(name=f'{user1}-to-{user2}')
     new_chat.save()
     add_user_to_chat(new_chat, [user1, user2])
@@ -31,7 +33,6 @@ def add_user_to_chat(chat, username):
         user = CustomUser.objects.get(username=u)
         chat.member.set([user])
     chat.save()
-    print('добавил юзера в чат')
 
 
 main_menu = [

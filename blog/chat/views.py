@@ -8,7 +8,8 @@ from .utils import *
 
 class ChatPage(DataMixin, View):
     """ВЫВОД СТРАНИЦЫ БЕЗ ВЫБРАННОГО ЧАТА"""
-    messages = ['aa','bb','cc','dd','ee','ff','gg']
+    messages = ['aa', 'bb', 'cc' 'dd', 'ee', 'ff', 'gg']
+    chat_names = ['aboba', 'kuzima', 'osadok', 'zhmich']
 
     def get(self, request):
         self.context = self.get_context({'title': 'Чаты', 'chat_name': 'Выберите чат'})
