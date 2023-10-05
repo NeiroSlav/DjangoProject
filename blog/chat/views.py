@@ -8,46 +8,39 @@ from .utils import *
 
 class ChatPage(DataMixin, View):
     """ВЫВОД СТРАНИЦЫ БЕЗ ВЫБРАННОГО ЧАТА"""
-    messages = ['asdf', '412341', 'qwerqw', '09897', 'zxcvzx']
-    html = 'chat/chat.html'
 
     def get(self, request):
-        self.context = self.get_context({'title': 'Чаты',
-                                    'chat_name': 'Выберите чат'})
-
-        return self.rendering(request,
-                              context=self.context)
+        self.context = self.get_context({'title': 'Чаты', 'chat_name': 'Выберите чат'})
+        return self.rendering(request, context=self.context)
 
     def rendering(self, request, context):
-        return render(request,
-                      template_name=self.html,
-                      context=context)
+        return render(request, 'chat/chat.html', context)
 
 
 class PersonalChatPage(ChatPage):
-    """ВЫВОД СТРАНИЦЫ С ПЕРСОНАЛЬНЫМ ЧАТОМ"""
+    """ВЫВОД СТРАНИЦЫ С ЛИЧНЫМ ЧАТОМ"""
 
-    def get(self, request, username):
-        """принимает логин пользователя"""
+    def get(self, request, username):  # принимает логин пользователя
         self.form = NewMessageForm()
         self.assemble_chat(request, username)
         return self.rendering(request, self.context)
 
-    def post(self, request, username):
+    def post(self, request, username):  # при отправке сообщения сохраняет его
         self.form = NewMessageForm(request.POST)
         self.assemble_chat(request, username)
         if self.form.is_valid():  # если форма валидна - сохраняет
             new_message = self.form.save(commit=False)
             new_message.chat = self.chat
-            new_message.user = self.writer
+            new_message.user = self.user
             new_message.save()
             return redirect(reverse('personal_chat', kwargs={'username': username}))
         else:
             return self.rendering(request, self.context)
 
     def assemble_chat(self, request, username):
-        self.writer = request.user.username
-        self.writer = CustomUser.objects.get(username=self.writer)
+        """вспомогательная функция для сборки нужных данных"""
+        self.user = request.user.username
+        self.user = CustomUser.objects.get(username=self.user)
         self.chat = find_personal_chat(self.writer, username)
         self.chat_name = f'> {username}'
         self.context = self.get_context({'title': 'Чаты',
@@ -78,7 +71,6 @@ class NewChat(DataMixin, View):
             return self.rendering(request)
 
     def rendering(self, request):
-        return render(request, self.html_page,
-                      context=self.get_context({'title': 'Новый чат',
-                                                'form': self.form
-                                                }))
+        context = self.get_context({'title': 'Новый чат',
+                                    'form': self.form})
+        return render(request, self.html_page, context)
