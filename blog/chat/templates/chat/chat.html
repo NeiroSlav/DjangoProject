@@ -5,6 +5,14 @@
 <h1>{{ chat_name }}</h1>
 <br>
 
-
+<div class="list-elem-div">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button class="del-buttons" type="submit">
+            >
+        </button>
+    </form>
+</div>
 
 {% endblock %}

@@ -12,8 +12,11 @@ class ChatPage(DataMixin, View):
     html = 'chat/chat.html'
 
     def get(self, request):
+        self.context = self.get_context({'title': 'Чаты',
+                                    'chat_name': 'Выберите чат'})
+
         return self.rendering(request,
-                              context=self.get_context())
+                              context=self.context)
 
     def rendering(self, request, context):
         return render(request,
@@ -26,42 +29,31 @@ class PersonalChatPage(ChatPage):
 
     def get(self, request, username):
         """принимает логин пользователя"""
+        self.form = NewMessageForm()
+        self.assemble_chat(request, username)
+        return self.rendering(request, self.context)
 
-        writer = request.user.username
-        chat = find_personal_chat(writer, username)
-        chat_name = f'> {username}'
-        context = self.get_context({'title': 'Чаты',
-                                    'chat_name': chat_name,
-                                    'messages': self.messages})
+    def post(self, request, username):
+        self.form = NewMessageForm(request.POST)
+        self.assemble_chat(request, username)
+        if self.form.is_valid():  # если форма валидна - сохраняет
+            new_message = self.form.save(commit=False)
+            new_message.chat = self.chat
+            new_message.user = self.writer
+            new_message.save()
+            return redirect(reverse('personal_chat', kwargs={'username': username}))
+        else:
+            return self.rendering(request, self.context)
 
-        return self.rendering(request, context)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    def assemble_chat(self, request, username):
+        self.writer = request.user.username
+        self.writer = CustomUser.objects.get(username=self.writer)
+        self.chat = find_personal_chat(self.writer, username)
+        self.chat_name = f'> {username}'
+        self.context = self.get_context({'title': 'Чаты',
+                                         'chat_name': self.chat_name,
+                                         'messages': self.messages,
+                                         'form': self.form})
 
 
 class NewChat(DataMixin, View):

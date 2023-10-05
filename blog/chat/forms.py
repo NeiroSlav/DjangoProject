@@ -11,3 +11,13 @@ class NewChatForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'input-form'}),
         }
+
+
+class NewMessageForm(forms.ModelForm):
+    class Meta:
+
+        model = Message
+        fields = ['text']
+        widgets = {
+            'text': forms.TextInput(attrs={'class': 'input-form'})
+        }
