@@ -1,7 +1,38 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
+from django.db.models import Q
 
+from userface.models import CustomUser
 from .models import *
+from .utils import *
+
+
+def find_personal_chat(user1, user2) -> Chat:
+    chat_name = f'{user1}-to-{user2}'
+    name_chat = f'{user2}-to-{user1}'
+    chat = Chat.objects.filter(Q(name=chat_name) | Q(name=name_chat))
+
+    if not chat:
+        chat = [create_personal_chat(user1, user2)]
+
+    return chat[0]
+
+
+def create_personal_chat(user1, user2) -> Chat:
+    new_chat = Chat(name=f'{user1}-to-{user2}')
+    new_chat.save()
+    add_user_to_chat(new_chat, [user1, user2])
+    return new_chat
+
+
+def add_user_to_chat(chat, username):
+    """добавление юзера в чат (может принимать и список)"""
+    if type(username) != list:
+        username = [username]
+    for u in username:
+        user = CustomUser.objects.get(username=u)
+        chat.member.set([user])
+    chat.save()
+    print('добавил юзера в чат')
+
 
 main_menu = [
     {'title': 'все чаты', 'url': 'chat'},

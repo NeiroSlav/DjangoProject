@@ -11,6 +11,7 @@ humble_menu = [
     {'title': 'регистрация', 'url': 'register'}
 ]
 
+
 def get_menu(request=None, humble=True):
     if request:
         return main_menu if request.user.is_authenticated \
