@@ -8,6 +8,7 @@ from .utils import *
 
 class ChatPage(DataMixin, View):
     """ВЫВОД СТРАНИЦЫ БЕЗ ВЫБРАННОГО ЧАТА"""
+    messages = ['aa','bb','cc','dd','ee','ff','gg']
 
     def get(self, request):
         self.context = self.get_context({'title': 'Чаты', 'chat_name': 'Выберите чат'})
@@ -31,7 +32,7 @@ class PersonalChatPage(ChatPage):
         if self.form.is_valid():  # если форма валидна - сохраняет
             new_message = self.form.save(commit=False)
             new_message.chat = self.chat
-            new_message.user = self.user
+            new_message.user = self.writer
             new_message.save()
             return redirect(reverse('personal_chat', kwargs={'username': username}))
         else:
@@ -39,8 +40,8 @@ class PersonalChatPage(ChatPage):
 
     def assemble_chat(self, request, username):
         """вспомогательная функция для сборки нужных данных"""
-        self.user = request.user.username
-        self.user = CustomUser.objects.get(username=self.user)
+        self.writer = request.user.username
+        self.writer = CustomUser.objects.get(username=self.writer)
         self.chat = find_personal_chat(self.writer, username)
         self.chat_name = f'> {username}'
         self.context = self.get_context({'title': 'Чаты',
