@@ -5,16 +5,40 @@
 <div class="chat-frame">
     <div class="chat-sub-frame">
             <div class="chat-list">
+                {% for c in all_chats %}
+                <div class="chat-list-frame">
+                    <div class="chat-list-text">
+                    <a href="{{ c.url }}">{{ c.title }}</a>
+                    </div>
+                </div>
+                <div class="chat-separator">
+                </div>
+                {% endfor %}
             </div>
+
+
 
             <div class="opened-chat">
 
                 <div class="chat-header">
+                    <div class="chat-list-text">
                     {{ chat_name }}
+                    </div>
                 </div>
 
 
                 <div class="chat-content">
+                    {% for m in messages %}
+                        {% if m.user == writer %}
+                        <div class="my-chat-message">
+                                {{ m }}
+                        </div>
+                        {% else %}
+                        <div class="notmy-chat-message">
+                                {{ m }}
+                        </div>
+                        {% endif %}
+                    {% endfor %}
                 </div>
 
                 <div class="chat-input">

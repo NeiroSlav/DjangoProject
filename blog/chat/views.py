@@ -1,18 +1,21 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views import View
+from .models import *
 
 from .forms import *
 from .utils import *
+from userface.utils import LoginMixin
 
 
-class ChatPage(DataMixin, View):
+class ChatPage(LoginMixin, DataMixin, View):
     """ВЫВОД СТРАНИЦЫ БЕЗ ВЫБРАННОГО ЧАТА"""
-    messages = ['aa', 'bb', 'cc' 'dd', 'ee', 'ff', 'gg']
     chat_names = ['aboba', 'kuzima', 'osadok', 'zhmich']
+    chat_names = chat_names*5
 
     def get(self, request):
-        self.context = self.get_context({'title': 'Чаты', 'chat_name': 'Выберите чат'})
+        self.context = self.get_context({'title': 'Чаты', 'chat_name': '< Выберите чат',
+                                        'all_chats': create_chat_list(request.user.username)})
         return self.rendering(request, context=self.context)
 
     def rendering(self, request, context):
@@ -41,17 +44,21 @@ class PersonalChatPage(ChatPage):
 
     def assemble_chat(self, request, username):
         """вспомогательная функция для сборки нужных данных"""
-        self.writer = request.user.username
-        self.writer = CustomUser.objects.get(username=self.writer)
+        self.writer_name = request.user.username
+        self.writer = CustomUser.objects.get(username=self.writer_name)
         self.chat = find_personal_chat(self.writer, username)
         self.chat_name = f'> {username}'
+        self.all_chats = create_chat_list(self.writer_name)
+        self.messages = Message.objects.filter(chat__name=self.chat.name)
         self.context = self.get_context({'title': 'Чаты',
+                                         'all_chats': self.all_chats,
                                          'chat_name': self.chat_name,
                                          'messages': self.messages,
-                                         'form': self.form})
+                                         'writer': self.writer,
+                                         'form': self.form},)
 
 
-class NewChat(DataMixin, View):
+class NewChat(LoginMixin, DataMixin, View):
     """СОЗДАНИЕ НОВОГО ЧАТА"""
     html_page = 'chat/new.html'
 
@@ -62,11 +69,11 @@ class NewChat(DataMixin, View):
     def post(self, request):
         self.form = NewChatForm(request.POST)
         if self.form.is_valid():  # если форма валидна - сохраняет
-            user1 = request.user.username
+            user = CustomUser.objects.get(username=request.user.username)
             new_chat = self.form.save(commit=False)
-            new_chat.admin = user1
+            new_chat.admin = user
             new_chat.save()
-            add_user_to_chat(new_chat, user1)
+            add_user_to_chat(new_chat, user)
             return redirect(reverse('chat', kwargs={'chat_name': new_chat.id}))
 
         else:  # если нет - отрисовывает вновь

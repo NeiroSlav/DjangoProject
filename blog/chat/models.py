@@ -1,4 +1,6 @@
 from django.db import models
+from django.shortcuts import redirect
+from django.urls import reverse
 
 
 class Message(models.Model):
@@ -15,6 +17,9 @@ class Message(models.Model):
     class Meta:
         ordering = ['date']
 
+    def __str__(self):
+        return self.text
+
 
 class Chat(models.Model):
     name = models.CharField(max_length=30)
@@ -25,6 +30,21 @@ class Chat(models.Model):
                               on_delete=models.SET_NULL,
                               null=True,
                               related_name='admin')
+
+    def get_absolute_url(self, writer):
+        username = self.chatname_to_username(writer)
+        try:
+            return reverse('personal_chat', kwargs={'username': username})
+        except:
+            return None
+
+    def chatname_to_username(self, writer):
+        chatname = self.name.replace('-to-', '')
+        try:
+            chatname = chatname.replace(writer, '')
+        except:
+            pass
+        return chatname
 
     def __str__(self):
         return self.name

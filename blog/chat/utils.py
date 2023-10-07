@@ -35,6 +35,24 @@ def add_user_to_chat(chat, username):
     chat.save()
 
 
+def create_chat_list(writer):
+    chat_list = Chat.objects.filter(member__username=writer)
+    final_chat_list = []
+    for elem in chat_list:
+        try:
+            final_chat_list.append({
+                'title': elem.chatname_to_username(writer),
+                'url': elem.get_absolute_url(writer)})
+        except:
+            final_chat_list.append({
+                'title': elem.chatname_to_username(writer),
+                'url': elem.get_absolute_url(writer)})
+
+    return final_chat_list
+
+
+
+
 main_menu = [
     {'title': 'все чаты', 'url': 'chat'},
     {'title': 'новый чат', 'url': 'new_chat'},
