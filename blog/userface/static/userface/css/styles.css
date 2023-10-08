@@ -221,6 +221,7 @@ textarea {
 
 
 
+
 .chat-list {
   width: calc(23vw);
   margin: 12px 0px 0px 12px;
@@ -235,16 +236,27 @@ textarea {
   width: 0;
 }
 
-.chat-list-frame {
-  width: auto;
+.chat-list-text {
+  margin-left: 3vw;
+  margin-top: 17px;
+}
+
+.chat-list-button {
+  width: calc(23vw);
   height: 53px;
   background-color: #212121;
   display: flex;
-  align-items: center;
+  color: #CCCCCC;
+  font-size: 18px;
+  border: 0px;
 }
 
-.chat-list-text {
-  margin-left: 3vw
+.chat-list-button:hover {
+  background-color: #252525;
+}
+
+.chat-list-button:active {
+  background-color: #252525;
 }
 
 .chat-separator {
@@ -252,6 +264,19 @@ textarea {
   height: 3px;
   background-color: #333333;
 }
+
+.chat-list-button-selected {
+  width: calc(23vw);
+  height: 53px;
+  background-color: #252525;
+  display: flex;
+  color: #009ACA;
+  font-size: 18px;
+  border: 0px;
+}
+
+
+
 
 .opened-chat {
   width: calc(77vw - 240px);
@@ -265,7 +290,11 @@ textarea {
   background-color: #212121;
   border-radius: 0 10px 0 0;
   display: flex;
-  align-items: center;
+}
+
+.chat-header-text {
+  margin-left: 3vw;
+  margin-top: 14px;
 }
 
 .chat-content {
@@ -307,6 +336,7 @@ textarea {
   color: #FFFFFF;
   font-size: 16px;
   overflow-y: auto;
+  border: 0px;
 }
 
 

@@ -31,19 +31,18 @@ class Chat(models.Model):
                               null=True,
                               related_name='admin')
 
-    def get_absolute_url(self, writer):
-        username = self.chatname_to_username(writer)
-        try:
-            return reverse('personal_chat', kwargs={'username': username})
-        except:
-            return None
+    def get_title_and_url(self, writer) -> dict:
+        if self.personal:
+            title = self.chatname_to_username(writer)
+            url = reverse('personal_chat', kwargs={'username': title})
+        else:
+            title = self.name
+            url = reverse('group_chat', kwargs={'username': title})
+        return {'title': title, 'url': url}
 
     def chatname_to_username(self, writer):
         chatname = self.name.replace('-to-', '')
-        try:
-            chatname = chatname.replace(writer, '')
-        except:
-            pass
+        chatname = chatname.replace(writer, '')
         return chatname
 
     def __str__(self):

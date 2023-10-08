@@ -1,5 +1,3 @@
-from django.db.models import Q
-
 from userface.models import CustomUser
 from .models import *
 from .utils import *
@@ -7,9 +5,9 @@ from .utils import *
 
 def find_personal_chat(user1, user2) -> Chat:
     """поиск личного чата между юзерами"""
-    chat_name = f'{user1}-to-{user2}'
-    name_chat = f'{user2}-to-{user1}'
-    chat = Chat.objects.filter(Q(name=chat_name) | Q(name=name_chat))
+    chat = Chat.objects.filter(member__username=user1)
+    chat = chat.filter(member__username=user2)
+    chat = chat.filter(personal=True)
 
     if not chat:
         chat = [create_personal_chat(user1, user2)]
@@ -22,35 +20,34 @@ def create_personal_chat(user1, user2) -> Chat:
     new_chat = Chat(name=f'{user1}-to-{user2}')
     new_chat.save()
     add_user_to_chat(new_chat, [user1, user2])
+
     return new_chat
 
 
-def add_user_to_chat(chat, username):
+def add_user_to_chat(chat, usernames):
     """добавление юзера в чат (может принимать и список)"""
-    if type(username) != list:
-        username = [username]
-    for u in username:
-        user = CustomUser.objects.get(username=u)
-        chat.member.set([user])
+    if type(usernames) != list:
+        usernames = [usernames]
+    users = []
+    for i in range(len(usernames)):
+        user = CustomUser.objects.get(username=usernames[i])
+        users.append(user)
+
+    chat.member.set(users)
     chat.save()
 
 
-def create_chat_list(writer):
+def create_chat_list(writer, selected_chat=None):
+    """создание списка сайтов для отображения на панели слева"""
     chat_list = Chat.objects.filter(member__username=writer)
     final_chat_list = []
     for elem in chat_list:
-        try:
-            final_chat_list.append({
-                'title': elem.chatname_to_username(writer),
-                'url': elem.get_absolute_url(writer)})
-        except:
-            final_chat_list.append({
-                'title': elem.chatname_to_username(writer),
-                'url': elem.get_absolute_url(writer)})
+        chat_bar = elem.get_title_and_url(writer)
+        if elem == selected_chat:
+            chat_bar['selected'] = True
+        final_chat_list.append(chat_bar)
 
     return final_chat_list
-
-
 
 
 main_menu = [

@@ -6,11 +6,21 @@
     <div class="chat-sub-frame">
             <div class="chat-list">
                 {% for c in all_chats %}
-                <div class="chat-list-frame">
+
+                <button
+                        {% if c.selected %}
+                        class="chat-list-button-selected"
+                        {% else %}
+                        class="chat-list-button"
+                        {% endif %}
+
+                        onclick="window.location.href='{{ c.url }}';">
                     <div class="chat-list-text">
-                    <a href="{{ c.url }}">{{ c.title }}</a>
+                    {{ c.title }}
                     </div>
-                </div>
+                </button>
+
+
                 <div class="chat-separator">
                 </div>
                 {% endfor %}
@@ -21,7 +31,7 @@
             <div class="opened-chat">
 
                 <div class="chat-header">
-                    <div class="chat-list-text">
+                    <div class="chat-header-text">
                     {{ chat_name }}
                     </div>
                 </div>

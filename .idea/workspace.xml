@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="some css around chat">
+    <list default="true" id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="added list of masseges, now user can chat with any user">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/chat/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/chat/templates/chat/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/templates/chat/chat.html" afterDir="false" />
@@ -296,7 +296,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696523432811</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added list of masseges, now user can chat with any user">
+      <option name="closed" value="true" />
+      <created>1696673901953</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1696673901953</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -324,6 +332,7 @@
     <MESSAGE value="added form and basic view for sending messages" />
     <MESSAGE value="repair a bit cosmetic changes)" />
     <MESSAGE value="some css around chat" />
-    <option name="LAST_COMMIT_MESSAGE" value="some css around chat" />
+    <MESSAGE value="added list of masseges, now user can chat with any user" />
+    <option name="LAST_COMMIT_MESSAGE" value="added list of masseges, now user can chat with any user" />
   </component>
 </project>
