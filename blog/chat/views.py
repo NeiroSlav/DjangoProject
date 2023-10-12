@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import View
+from django.http import JsonResponse
 
 from userface.utils import LoginMixin
 from .forms import *
@@ -48,15 +49,20 @@ class PersonalChatPage(ChatPage):
         self.writer_name = request.user.username
         self.writer = CustomUser.objects.get(username=self.writer_name)
         self.chat = find_personal_chat(self.writer, username)
-        self.chat_name = f'{username}'
         self.all_chats = create_chat_list(self.writer_name, self.chat)
-        self.messages = Message.objects.filter(chat__name=self.chat.name)
         self.context = self.get_context({'title': 'Чаты',
                                          'all_chats': self.all_chats,
-                                         'chat_name': self.chat_name,
-                                         'messages': self.messages,
+                                         'chat_name': username,
                                          'writer': self.writer,
                                          'form': self.form}, )
+
+
+def get_chat_messages(request):
+    chat = find_personal_chat(request.user.username,
+                              request.GET['chat_title'])
+    messages = Message.objects.filter(chat=chat)
+    json_messages = messages_to_json(messages)
+    return JsonResponse({'messages': json_messages})
 
 
 class NewChat(LoginMixin, DataMixin, View):

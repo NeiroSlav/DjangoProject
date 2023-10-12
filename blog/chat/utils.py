@@ -49,6 +49,13 @@ def create_chat_list(writer, selected_chat=None):
 
     return final_chat_list
 
+def messages_to_json(messages):
+    json_messages = []
+    for m in messages:
+        json_messages.append({'text': str(m.text), 'user': str(m.user)})
+    return json_messages
+
+
 
 main_menu = [
     {'title': 'все чаты', 'url': 'chat'},

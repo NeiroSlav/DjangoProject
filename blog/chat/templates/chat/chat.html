@@ -2,6 +2,8 @@
 
 {% block content %}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
 <div class="chat-frame">
     <div class="chat-sub-frame">
             <div class="chat-list">
@@ -37,18 +39,8 @@
                 </div>
 
 
-                <div class="chat-content">
-                    {% for m in messages %}
-                        {% if m.user == writer %}
-                        <div class="my-chat-message">
-                                {{ m }}
-                        </div>
-                        {% else %}
-                        <div class="notmy-chat-message">
-                                {{ m }}
-                        </div>
-                        {% endif %}
-                    {% endfor %}
+                <div class="chat-content" id="display-chat">
+
                 </div>
 
                 <div class="chat-input">
@@ -63,5 +55,72 @@
     </div>
 </div>
 <br>
+
+<script>
+$.ajax({
+    type: 'GET',
+    url : "{% url 'get_chat_messages' %}",
+    dataType: 'json',
+    data: {
+        chat_title: '{{ chat_name }}',
+    },
+
+    success: function(response){
+
+        $("#display-chat").empty();
+        for (var key in response.messages)
+        {
+            if (response.messages[key].user == '{{ writer }}') {
+                var temp=
+                "<div class='my-chat-message'>"
+                +response.messages[key].text+
+                "</div>";
+            }
+            else {
+                var temp=
+                "<div class='notmy-chat-message'>"
+                +response.messages[key].text+
+                "</div>";
+            }
+        $("#display-chat").append(temp);
+        }
+    }
+});
+
+$(document).ready(function(){
+
+    setInterval(function(){
+        $.ajax({
+            type: 'GET',
+            url : "{% url 'get_chat_messages' %}",
+            dataType: 'json',
+            data: {
+                chat_title: '{{ chat_name }}',
+            },
+
+            success: function(response){
+
+                $("#display-chat").empty();
+                for (var key in response.messages)
+                {
+                    if (response.messages[key].user == '{{ writer }}') {
+                        var temp=
+                        "<div class='my-chat-message'>"
+                        +response.messages[key].text+
+                        "</div>";
+                    }
+                    else {
+                        var temp=
+                        "<div class='notmy-chat-message'>"
+                        +response.messages[key].text+
+                        "</div>";
+                    }
+                $("#display-chat").append(temp);
+                }
+            }
+        });
+    },1000);
+});
+</script>
 
 {% endblock %}

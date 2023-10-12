@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="added list of masseges, now user can chat with any user">
+    <list default="true" id="8d7605e1-ef8e-47b8-9cd3-ebdfa1c2c99e" name="Changes" comment="restructured some chat-work algorithms&#10;added chat-list buttons, they work well now">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/chat/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/chat/templates/chat/chat.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/templates/chat/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/chat/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/chat/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/chat/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/chat/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blog/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/blog/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/userface/static/userface/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/blog/userface/static/userface/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,8 +87,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Python/DjangoProject/blog/chat/templates/chat&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
+    &quot;last_opened_file_path&quot;: &quot;E:/Python/DjangoProject/blog/manage.py&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -108,7 +108,7 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DjangoProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -116,12 +116,13 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.11 (DjangoProject)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Test" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../Test/test.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/blog/manage.py" />
+      <option name="PARAMETERS" value="runserver" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -131,7 +132,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
+        <item itemvalue="Python.manage" />
       </list>
     </recent_temporary>
   </component>
