@@ -203,12 +203,12 @@ textarea {
 
 .chat-frame {
   font-size: 18px;
-  padding: 40px 107px 40px 107px;
+  padding: 30px 107px 40px 107px;
   color: #CCCCCC;
   text-align: justify;
   font-weight: 500;
   line-height: 1.5;
-  height: calc(100vh - 240px);
+  height: calc(100vh - 232px);
 }
 
 .chat-sub-frame {
@@ -310,7 +310,7 @@ textarea {
   color: #FF7F27
 }
 
-.notmy-chat-message {
+.chat-message {
   margin: 10px 15px 10px 15px;
   text-align: left;
   color: #CCCCCC;
