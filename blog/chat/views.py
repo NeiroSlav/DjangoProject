@@ -62,10 +62,18 @@ def get_chat_messages(request) -> JsonResponse:
     chat = find_personal_chat(request.user.username,
                               request.GET['chat_title'])
     messages = Message.objects.filter(chat=chat)
-    last_message_id = messages[len(messages)-1].id
+    try:
+        last_message_id = messages[len(messages)-1].id
+    except:
+        last_message_id = 0
     json_messages = messages_to_json(messages)
     return JsonResponse({'messages': json_messages,
                          'last_message_id': last_message_id})
+
+
+# def get_chatlist(request) -> JsonResponse:
+#     all_chats = create_chat_list(self.writer_name, self.chat)
+#     return JsonResponse(all_chats)
 
 
 class NewChat(LoginMixin, DataMixin, View):

@@ -2,8 +2,16 @@
 
 {% block content %}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+{% load static %}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<div class="opened-chat"
+     data-chat-name="{{ chat_name }}"
+     data-writer="{{ writer }}"
+     data-chat-url="{% url 'get_chat_messages' %}">
+
+<script src="{% static 'chat/js/chat.js' %}"></script>
+</div>
 
 <div class="chat-frame">
     <div class="chat-sub-frame">
@@ -61,60 +69,5 @@
 </div>
 <br>
 
-<script>
-var last_message_id = 0;
-
-function chat_update() {
-    $.ajax({
-        type: 'GET',
-        url : "{% url 'get_chat_messages' %}",
-        dataType: 'json',
-        data: {
-        chat_title: '{{ chat_name }}',
-        },
-
-        success: function(response){
-            if (last_message_id != response.last_message_id) {
-                last_message_id = response.last_message_id;
-
-                var container = document.getElementById("display-chat");
-                $(container).empty();
-
-                for (var key in response.messages){
-                    var temp = response.messages[key].text + "</div>";
-                    var temp2 = response.messages[key].time + "</div>";
-
-                    if (response.messages[key].user == '{{ writer }}') {
-                        temp = "<div class='my-chat-message'>" + temp + "<div class='my-chat-time'>" + temp2;
-                    }
-                    else {
-                        temp = "<div class='chat-message'>" + temp + "<div class='chat-time'>" + temp2;
-                    }
-                $(container).append(temp);
-                }
-
-            }
-
-            container.scrollTop = container.scrollHeight;
-        }
-    });
-}
-
-chat_update()
-
-window.onload = function() {
-    var inputElement = document.getElementById("chat-input");
-
-    if (inputElement) {
-        inputElement.focus();
-    }
-};
-
-    $(document).ready(function(){
-        setInterval(function(){
-        chat_update();
-        },1000);
-    });
-    </script>
 
 {% endblock %}
