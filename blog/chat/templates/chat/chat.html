@@ -4,6 +4,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
+
 <div class="chat-frame">
     <div class="chat-sub-frame">
             <div class="chat-list">
@@ -34,7 +35,11 @@
 
                 <div class="chat-header">
                     <div class="chat-header-text">
-                    {{ chat_name }}
+                        {% if chat_name %}
+                            {{ chat_name }}
+                        {% else %}
+                            Выберите чат
+                        {% endif %}
                     </div>
                 </div>
 
@@ -57,6 +62,8 @@
 <br>
 
 <script>
+var last_message_id = 0;
+
 function chat_update() {
     $.ajax({
         type: 'GET',
@@ -67,30 +74,47 @@ function chat_update() {
         },
 
         success: function(response){
-            $("#display-chat").empty();
+            if (last_message_id != response.last_message_id) {
+                last_message_id = response.last_message_id;
 
-            for (var key in response.messages){
-                var temp = response.messages[key].text + "</div>";
+                var container = document.getElementById("display-chat");
+                $(container).empty();
 
-                if (response.messages[key].user == '{{ writer }}') {
-                    temp = "<div class='my-chat-message'>" + temp;
+                for (var key in response.messages){
+                    var temp = response.messages[key].text + "</div>";
+                    var temp2 = response.messages[key].time + "</div>";
+
+                    if (response.messages[key].user == '{{ writer }}') {
+                        temp = "<div class='my-chat-message'>" + temp + "<div class='my-chat-time'>" + temp2;
+                    }
+                    else {
+                        temp = "<div class='chat-message'>" + temp + "<div class='chat-time'>" + temp2;
+                    }
+                $(container).append(temp);
                 }
-                else {
-                    temp = "<div class='chat-message'>" + temp;
-                }
-            $("#display-chat").append(temp);
+
             }
+
+            container.scrollTop = container.scrollHeight;
         }
     });
 }
 
 chat_update()
 
-$(document).ready(function(){
-    setInterval(function(){
-    chat_update();
-    },1000);
-});
-</script>
+window.onload = function() {
+    var inputElement = document.getElementById("chat-input");
+
+    if (inputElement) {
+        inputElement.focus();
+    }
+};
+
+    $(document).ready(function(){
+        setInterval(function(){
+        chat_update();
+        },1000);
+    });
+    </script>
 
 {% endblock %}

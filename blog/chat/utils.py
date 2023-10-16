@@ -3,8 +3,11 @@ from .models import *
 from .utils import *
 
 
-def find_personal_chat(user1, user2) -> Chat:
+def find_personal_chat(user1, user2):
     """поиск личного чата между юзерами"""
+    if not (user1 and user2):
+        return None
+
     chat = Chat.objects.filter(member__username=user1)
     chat = chat.filter(member__username=user2)
     chat = chat.filter(personal=True)
@@ -24,7 +27,7 @@ def create_personal_chat(user1, user2) -> Chat:
     return new_chat
 
 
-def add_user_to_chat(chat, usernames):
+def add_user_to_chat(chat, usernames: str | list):
     """добавление юзера в чат (может принимать и список)"""
     if type(usernames) != list:
         usernames = [usernames]
@@ -35,6 +38,14 @@ def add_user_to_chat(chat, usernames):
 
     chat.member.set(users)
     chat.save()
+
+#
+# def read_chat(chat, username=None, unread=False):
+#     if unread:
+#         chat.read = []
+#     else:
+#         chat.read = chat.read + [username]
+#     chat.save()
 
 
 def create_chat_list(writer, selected_chat=None):
@@ -49,12 +60,14 @@ def create_chat_list(writer, selected_chat=None):
 
     return final_chat_list
 
+
 def messages_to_json(messages):
     json_messages = []
     for m in messages:
-        json_messages.append({'text': str(m.text), 'user': str(m.user)})
+        json_messages.append({'text': str(m.text),
+                              'user': str(m.user),
+                              'time': str(m.date.time()).split('.')[0]})
     return json_messages
-
 
 
 main_menu = [

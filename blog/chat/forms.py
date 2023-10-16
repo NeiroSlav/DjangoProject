@@ -19,5 +19,7 @@ class NewMessageForm(forms.ModelForm):
         model = Message
         fields = ['text']
         widgets = {
-            'text': forms.TextInput(attrs={'class': 'chat-input-form'})
+            'text': forms.TextInput(attrs={'class': 'chat-input-form',
+                                           'id': 'chat-input',
+                                           'autocomplete': 'off'})
         }

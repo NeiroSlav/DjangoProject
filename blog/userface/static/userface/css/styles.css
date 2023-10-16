@@ -305,15 +305,29 @@ textarea {
 }
 
 .my-chat-message {
-  margin: 10px 15px 10px 15px;
+  margin: 15px 15px 0px 15px;
   text-align: right;
-  color: #FF7F27
+  color: #FF7F27;
 }
 
 .chat-message {
-  margin: 10px 15px 10px 15px;
+  margin: 15px 15px 0px 15px;
   text-align: left;
   color: #CCCCCC;
+}
+
+.my-chat-time {
+  margin: 0px 15px 15px 15px;
+  font-size: 10px;
+  text-align: right;
+  color: #888888;
+}
+
+.chat-time {
+  margin: 0px 15px 15px 15px;
+  font-size: 10px;
+  text-align: left;
+  color: #888888;
 }
 
 

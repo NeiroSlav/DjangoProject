@@ -30,6 +30,7 @@ class Chat(models.Model):
                               on_delete=models.SET_NULL,
                               null=True,
                               related_name='admin')
+    read = models.JSONField(default=None, null=True)
 
     def get_title_and_url(self, writer) -> dict:
         if self.personal:
